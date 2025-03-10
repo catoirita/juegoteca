@@ -3,12 +3,13 @@
 class Database
 {
     private $host = 'localhost';
-    private $port = '3310'; 
+    private $port = '3310'; // Puerto personalizado
     private $db_name = 'juegoteca';
     private $username = 'root';
     private $password = '';
     private $conn;
 
+    // Método para obtener la conexión a la base de datos
     public function getConnection()
     {
         $this->conn = null;
@@ -23,4 +24,3 @@ class Database
         return $this->conn;
     }
 }
-S

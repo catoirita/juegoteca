@@ -13,18 +13,9 @@ class UserService
 
     public function authenticate($username, $password)
     {
-        $user = $this->userDAO->getUserByUsername($username);
-        //echo "el contenido de usuario en la capa de negocio es:";
-        //echo("nombre de usuario");
-        //var_dump($user["username"]);
-        //echo("clave del usuario");
-        //var_dump($user["password"]);
-        //if ($user && password_verify($password, $user['password'])) 
+        $user = $this->userDAO->getUserByUsername($username); 
         if ($password = $user['password']){
-        //echo "el contenido de usuario ciclo:";
-        //var_dump($user);
-        //var_dump($user['user_id']);
-            // Usuario autenticado
+       
             return true;
         }
 

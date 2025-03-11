@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                         <form action="create.php" method="post">
                             <div class="form-group">
-                                <label for="username">Nombre</label>
+                                <label for="username">Correo Electrónico</label>
                                 <input type="text" class="form-control" id="username" name="username" required>
                             </div>
                             <div class="form-group">

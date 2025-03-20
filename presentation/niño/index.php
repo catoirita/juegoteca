@@ -44,7 +44,7 @@ $niños = $niñoService->getAllNiños();
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">Lista de Niños</h1>
-                        <a href="create.php" title="Agregar nuevo niño" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addNiñoModal">Nuevo</a>
+                        <a href="create.php" title="Agregar nuevo niño" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addNiñoModal">REGISTRAR</a>
                     </div>
                 </div>
                 <table class="table table-striped mt-3">
@@ -74,18 +74,18 @@ $niños = $niñoService->getAllNiños();
                                     <a href="edit.php?id=<?php echo htmlspecialchars($niño['id']); ?>" 
                                        title="Editar niño" 
                                        class="btn btn-primary btn-sm">
-                                        <i class="fa fa-edit"></i> Editar
+                                        <i class="fa fa-edit"></i> EDITAR
                                     </a>
                                     <a href="details.php?id=<?php echo htmlspecialchars($niño['id']); ?>" 
                                        title="Ver detalles" 
                                        class="btn btn-info btn-sm">
-                                        <i class="fa fa-eye"></i> Ver
+                                        <i class="fa fa-eye"></i> VER
                                     </a>
                                     <a href="delete.php?id=<?php echo htmlspecialchars($niño['id']); ?>" 
                                        title="Eliminar niño" 
                                        class="btn btn-danger btn-sm" 
                                        onclick="return confirm('¿Estás seguro de que quieres eliminar este niño?');">
-                                        <i class="fa fa-trash"></i> Eliminar
+                                        <i class="fa fa-trash"></i> ELIMINAR
                                     </a>
                                 </td>
                             </tr>

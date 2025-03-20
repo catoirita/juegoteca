@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <label for="password">Contraseña</label>
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
-                            <button type="submit" class="btn btn-primary">Crear Usuario</button>
+                            <button type="submit" class="btn btn-primary">REGISTRAR USUARIO</button>
                         </form>
                         <a href="index.php" class="btn btn-secondary mt-3">Volver a la lista</a>
                     </div>

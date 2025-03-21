@@ -12,21 +12,23 @@ class NiñoDAO
         $this->conn = $database->getConnection();
     }
 
-    // Método para agregar un niño
-    public function addNiño($nombre_completo, $fecha_nacimiento, $direccion, $numero_contacto, $persona_contacto_emergencia, $telefono_emergencia)
-    {
-        $query = "INSERT INTO niños (nombre_completo, fecha_nacimiento, direccion, numero_contacto, persona_contacto_emergencia, telefono_emergencia) 
-                  VALUES (:nombre_completo, :fecha_nacimiento, :direccion, :numero_contacto, :persona_contacto_emergencia, :telefono_emergencia)";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':nombre_completo', $nombre_completo);
-        $stmt->bindParam(':fecha_nacimiento', $fecha_nacimiento);
-        $stmt->bindParam(':direccion', $direccion);
-        $stmt->bindParam(':numero_contacto', $numero_contacto);
-        $stmt->bindParam(':persona_contacto_emergencia', $persona_contacto_emergencia);
-        $stmt->bindParam(':telefono_emergencia', $telefono_emergencia);
+    public function addNiño($nombre_completo, $fecha_nacimiento, $direccion, $numero_contacto, $persona_contacto_emergencia, $telefono_emergencia, $estado)
+{
+    $query = "INSERT INTO niños (nombre_completo, fecha_nacimiento, direccion, numero_contacto, persona_contacto_emergencia, telefono_emergencia, estado) 
+              VALUES (:nombre_completo, :fecha_nacimiento, :direccion, :numero_contacto, :persona_contacto_emergencia, :telefono_emergencia, :estado)";
+    
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(':nombre_completo', $nombre_completo);
+    $stmt->bindParam(':fecha_nacimiento', $fecha_nacimiento);
+    $stmt->bindParam(':direccion', $direccion);
+    $stmt->bindParam(':numero_contacto', $numero_contacto);
+    $stmt->bindParam(':persona_contacto_emergencia', $persona_contacto_emergencia);
+    $stmt->bindParam(':telefono_emergencia', $telefono_emergencia);
+    $stmt->bindParam(':estado', $estado, PDO::PARAM_INT);
 
-        return $stmt->execute(); // Retorna true si la ejecución fue exitosa
-    }
+    return $stmt->execute(); // Retorna true si la ejecución fue exitosa
+}
+
 
     // Método para obtener un niño por su ID
     public function getNiñoById($id)
@@ -40,19 +42,23 @@ class NiñoDAO
     }
 
 
-    public function updateNiño($Id,$nombre_completo, $fecha_nacimiento, $direccion, $numero_contacto, $persona_contacto_emergencia, $telefono_emergencia )
-    {
-        $query = "CALL UpdateNiño(:id, :nombre_completo, :fecha_nacimiento, :direccion, :numero_contacto, :persona_contacto_emergencia, :telefono_emergencia)";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':id', $Id, PDO::PARAM_INT);
-        $stmt->bindParam(':nombre_completo', $nombre_completo, PDO::PARAM_STR);
-        $stmt->bindParam(':fecha_nacimiento', $fecha_nacimiento, PDO::PARAM_STR);
-        $stmt->bindParam(':direccion', $direccion, PDO::PARAM_STR);
-        $stmt->bindParam(':numero_contacto', $numero_contacto, PDO::PARAM_STR);
-        $stmt->bindParam(':persona_contacto_emergencia', $persona_contacto_emergencia, PDO::PARAM_STR);
-        $stmt->bindParam(':telefono_emergencia', $telefono_emergencia, PDO::PARAM_STR);
-        return $stmt->execute(); // devuelve el resultado de la ejecución
-    }
+    public function updateNiño($Id, $nombre_completo, $fecha_nacimiento, $direccion, $numero_contacto, $persona_contacto_emergencia, $telefono_emergencia, $estado)
+{
+    $query = "CALL UpdateNiño(:id, :nombre_completo, :fecha_nacimiento, :direccion, :numero_contacto, :persona_contacto_emergencia, :telefono_emergencia, :estado)";
+    
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(':id', $Id, PDO::PARAM_INT);
+    $stmt->bindParam(':nombre_completo', $nombre_completo, PDO::PARAM_STR);
+    $stmt->bindParam(':fecha_nacimiento', $fecha_nacimiento, PDO::PARAM_STR);
+    $stmt->bindParam(':direccion', $direccion, PDO::PARAM_STR);
+    $stmt->bindParam(':numero_contacto', $numero_contacto, PDO::PARAM_STR);
+    $stmt->bindParam(':persona_contacto_emergencia', $persona_contacto_emergencia, PDO::PARAM_STR);
+    $stmt->bindParam(':telefono_emergencia', $telefono_emergencia, PDO::PARAM_STR);
+    $stmt->bindParam(':estado', $estado, PDO::PARAM_INT);
+
+    return $stmt->execute();
+}
+
     // Método para actualizar la asistencia de un niño
     public function updateAsistencia($id, $asistencia)
     {
@@ -77,11 +83,12 @@ class NiñoDAO
     // Método para eliminar un niño
     public function deleteNiño($id)
     {
-        $query = "DELETE FROM niños WHERE id = :id";
+        $estado = 0; // 0 significa "inactivo" o "eliminado"
+        $query = "UPDATE niños SET estado = :estado WHERE id = :id"; 
         $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':estado', $estado, PDO::PARAM_INT);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-
+    
         return $stmt->execute();
     }
-}
-?>
+}       

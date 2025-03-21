@@ -53,7 +53,6 @@ class UserDAO
 }
 
     
-
     // Encontrar un usuario por su ID usando PDO
     public function findUserById($userId)
     {

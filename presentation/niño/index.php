@@ -57,6 +57,7 @@ $niños = $niñoService->getAllNiños();
                             <th>Numero de contacto</th>
                             <th>Persona de contacto (EMERGENCIAS)</th>
                             <th>Telefono de emergencias</th>
+                            <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -70,6 +71,12 @@ $niños = $niñoService->getAllNiños();
                                 <td><?php echo htmlspecialchars($niño['numero_contacto']); ?></td>
                                 <td><?php echo htmlspecialchars($niño['persona_contacto_emergencia']); ?></td>
                                 <td><?php echo htmlspecialchars($niño['telefono_emergencia']); ?></td>
+                                <td><?php if($niño['estado']){
+                                        echo htmlspecialchars('Activo');
+                                    }else{
+                                        echo htmlspecialchars('inactivo');
+                                    }; ?></td>
+
                                 <td>
                                     <a href="edit.php?id=<?php echo htmlspecialchars($niño['id']); ?>" 
                                        title="Editar niño" 

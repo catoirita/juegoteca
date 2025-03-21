@@ -10,9 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $numero_contacto = $_POST['numero_contacto'] ?? '';
     $persona_contacto_emergencia = $_POST['persona_contacto_emergencia'] ?? '';
     $telefono_emergencia = $_POST['telefono_emergencia'] ?? '';
+    $estado = $_POST['estado']??'';
 
-    if ($nombre_completo && $fecha_nacimiento && $direccion && $numero_contacto && $persona_contacto_emergencia && $telefono_emergencia) {
-        $success = $niñoService->addNiño($nombre_completo, $fecha_nacimiento, $direccion, $numero_contacto, $persona_contacto_emergencia, $telefono_emergencia);
+    if ($nombre_completo && $fecha_nacimiento && $direccion && $numero_contacto && $persona_contacto_emergencia && $telefono_emergencia &&$estado) {
+        $success = $niñoService->addNiño($nombre_completo, $fecha_nacimiento, $direccion, $numero_contacto, $persona_contacto_emergencia, $telefono_emergencia,$estado);
         
         if ($success) {
             header('Location: index.php'); // Redirigir a la lista de niños
@@ -83,6 +84,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <label for="telefono_emergencia">Teléfono de Emergencia</label>
                         <input type="text" class="form-control" id="telefono_emergencia" name="telefono_emergencia" required>
                     </div>
+                    <div class="form-group">
+                                <label for="estado">Estado</label>
+                                <input type="number" class="form-control" id="estado" name="estado" required>
+                            </div>
+
                     <button type="submit" class="btn btn-primary">Agregar Niño</button>
                 </form>
                 <a href="index.php" class="btn btn-secondary mt-3">Volver a la lista</a>

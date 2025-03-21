@@ -82,10 +82,14 @@ class UserDAO
 
     // Eliminar un usuario por su ID
     public function deleteUser($userId)
+
     {
-        $query = "CALL DeleteUser(:id)";
+        $estado = 0;
+        $query = "CALL DeleteUser(:id,:estado)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
+        $stmt->bindParam(':estado', $estado, PDO::PARAM_INT);
+
 
         return $stmt->execute(); // devuelve el resultado de la ejecución
     }

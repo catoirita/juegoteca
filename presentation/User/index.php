@@ -88,7 +88,11 @@ $usuarios = $userService->getAllUsers();
                                     <td><?php echo htmlspecialchars($usuario['apellido']); ?></td>
                                     <td><?php echo htmlspecialchars($usuario['email']); ?></td>
                                     <td><?php echo htmlspecialchars($usuario['password']); ?></td>
-                                    <td><?php echo htmlspecialchars($usuario['estado']); ?></td>
+                                    <td><?php if($usuario['estado']){
+                                        echo htmlspecialchars('Activo');
+                                    }else{
+                                        echo htmlspecialchars('inactivo');
+                                    }; ?></td>
 
 
 

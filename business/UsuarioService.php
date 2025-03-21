@@ -11,15 +11,12 @@ class UserService
         $this->userDAO = new UserDAO();
     }
 
-    public function authenticate($username, $password)
+    public function authenticate($email, $password)
     {
-        $user = $this->userDAO->getUserByUsername($username); 
-        if ($password = $user['password']){
-       
+        $user = $this->userDAO->getUserByEmail($email);
+        if ($user && password_verify($password, $user['password'])) {
             return true;
         }
-
-        // Autenticación fallida
         return false;
     }
 
@@ -29,11 +26,17 @@ class UserService
         return $this->userDAO->getAllUsers();
     }
 
-    // Método para crear usuarios
-    public function createUser($username, $password)
-    {
-        return $this->userDAO->createUser($username, $password);
+    // Método para crear usuarios (sin necesidad de pasar ID)
+    public function createUser($nombre, $apellido, $email, $password, $estado)
+{
+    if (empty($nombre) || empty($apellido) || empty($email) || empty($password)) {
+        return false; // Validar que no haya datos vacíos
     }
+
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT); // Encriptar contraseña
+    return $this->userDAO->createUser($nombre, $apellido, $email, $hashedPassword, $estado);
+}
+
 
     // Obtener un usuario por ID
     public function getUserById($userId)
@@ -42,17 +45,14 @@ class UserService
     }
 
     // Actualizar un usuario
-    public function updateUser($userId, $username, $password)
+    public function updateUser($userId, $nombre, $apellido, $email, $password, $estado)
     {
-        // Validaciones básicas (puedes añadir más validaciones según sea necesario)
-        if (empty($username) || empty($password)) {
+        if (empty($nombre) || empty($apellido) || empty($email) || empty($password)) {
             return false;
         }
 
-        // Cifrar la contraseña antes de guardarla
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-
-        return $this->userDAO->updateUser($userId, $username, $hashedPassword);
+        return $this->userDAO->updateUser($userId, $nombre, $apellido, $email, $hashedPassword, $estado);
     }
 
     // Eliminar un usuario

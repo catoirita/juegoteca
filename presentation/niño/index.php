@@ -76,11 +76,7 @@ $niños = $niñoService->getAllNiños();
                                        class="btn btn-primary btn-sm">
                                         <i class="fa fa-edit"></i> EDITAR
                                     </a>
-                                    <a href="details.php?id=<?php echo htmlspecialchars($niño['id']); ?>" 
-                                       title="Ver detalles" 
-                                       class="btn btn-info btn-sm">
-                                        <i class="fa fa-eye"></i> VER
-                                    </a>
+                        
                                     <a href="delete.php?id=<?php echo htmlspecialchars($niño['id']); ?>" 
                                        title="Eliminar niño" 
                                        class="btn btn-danger btn-sm" 

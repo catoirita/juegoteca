@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="container mt-5">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Agregar Niño</h1>
+                        <h1 class="page-header">REGISTRAR NIÑO</h1>
                     </div>
                 </div>
                 <form action="create.php" method="post">

@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user'] = $email;
         $_SESSION['nombre'] = 'Ita Catoira'; // Puedes cambiar esto según la base de datos
 
-        header("Location: ../../presentation/dashboard/dashboard.php");
+        header("Location: ../../presentation/user/index.php");
         exit();
     } else {
         $error = 'Usuario/Contraseña inválida.';

@@ -12,24 +12,14 @@ class UserDAO
         $this->conn = $database->getConnection();
     }
 
-    /*public function getUserByUsername($username)
-    {
-        $query = "SELECT * FROM usuario WHERE username = :username";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':username', $username);
-        $stmt->execute();
-
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }*/
-
-    //Metodo para obtener los datos del usuario para su validacion
-    public function getUserByUsername($username)
+    // Método para obtener los datos del usuario para su validación
+    public function getUserByEmail($email)
     {
         echo "Parametro de entrada:";
-        var_dump($username);
-        $query = "CALL GetUserByUsername(:p_username)";
+        var_dump($email);
+        $query = "CALL GetUserByEmail(:p_email)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':p_username', $username);
+        $stmt->bindParam(':p_email', $email);
         $stmt->execute();
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -47,16 +37,22 @@ class UserDAO
         return $stmt->fetchAll(PDO::FETCH_ASSOC); // devuelve un array asociativo
     }
 
-    // Metodo para crear el usuario
-    public function createUser($username, $password)
-    {
-        $query = "CALL CreateUser(:username, :password)";
-        $stmt = $this->conn->prepare($query);
-        return $stmt->execute([
-            'username' => $username,
-            'password' => $password // Enviar la contraseña sin encriptar
-        ]);
-    }
+    // Método para crear un usuario
+    public function createUser($nombre, $apellido, $email, $password, $estado)
+{
+    $query = "CALL CreateUser(:email, :password, :apellido, :nombre, :estado)"; 
+    $stmt = $this->conn->prepare($query);
+
+    return $stmt->execute([
+        'nombre' => $nombre,
+        'apellido' => $apellido,
+        'email' => $email,
+        'password' => password_hash($password, PASSWORD_BCRYPT), // Encriptar contraseña
+        'estado' => $estado
+    ]);
+}
+
+    
 
     // Encontrar un usuario por su ID usando PDO
     public function findUserById($userId)
@@ -70,13 +66,16 @@ class UserDAO
     }
 
     // Actualizar un usuario en la base de datos usando PDO
-    public function updateUser($userId, $username, $hashedPassword)
+    public function updateUser($userId, $nombre, $apellido, $email, $hashedPassword, $estado)
     {
-        $query = "CALL UpdateUser(:id, :username, :password)";
+        $query = "CALL UpdateUser(:id, :nombre, :apellido, :email, :password, :estado)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
-        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+        $stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
+        $stmt->bindParam(':apellido', $apellido, PDO::PARAM_STR);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
+        $stmt->bindParam(':estado', $estado, PDO::PARAM_INT);
 
         return $stmt->execute(); // devuelve el resultado de la ejecución
     }

@@ -20,11 +20,14 @@ if (isset($_GET['id'])) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtener datos del formulario
-    $username = $_POST['username'];
+    $nombre = $_POST['nombre'];
+    $apellido = $_POST['apellido'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
+    $estado = $_POST['estado'];
 
     // Actualizar usuario existente
-    $success = $userService->updateUser($userId, $username, $password);
+    $success = $userService->updateUser($userId, $nombre, $apellido, $email, $password, $estado);
 
     if ($success) {
         header('Location: index.php'); // Redirigir a la lista de usuarios
@@ -70,13 +73,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <form action="edit.php?id=<?php echo $userId; ?>" method="post">
                     <div class="form-group">
-                        <label for="username">Nombre</label>
-                        <input type="text" class="form-control" id="username" name="username" value="<?php echo htmlspecialchars($user['username']); ?>" required>
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo htmlspecialchars($user['nombre']); ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo htmlspecialchars($user['apellido']); ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electronico</label>
+                        <input type="text" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>" required>
                     </div>
 
                     <div class="form-group">
                         <label for="password">Contraseña</label>
                         <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="estado">Etado</label>
+                        <input type="number" class="form-control" id="estado" name="estado" value="<?php echo htmlspecialchars($user['estado']); ?>" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Guardar Cambios</button>

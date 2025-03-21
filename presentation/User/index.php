@@ -72,8 +72,11 @@ $usuarios = $userService->getAllUsers();
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
                                 <th>Correo Electronico</th>
                                 <th>Contraseña</th>
+                                <th>Estado</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -81,19 +84,21 @@ $usuarios = $userService->getAllUsers();
                             <?php foreach ($usuarios as $usuario): ?>
                                 <tr>
                                     <td><?php echo htmlspecialchars($usuario['id']); ?></td>
-                                    <td><?php echo htmlspecialchars($usuario['username']); ?></td>
+                                    <td><?php echo htmlspecialchars($usuario['nombre']); ?></td>
+                                    <td><?php echo htmlspecialchars($usuario['apellido']); ?></td>
+                                    <td><?php echo htmlspecialchars($usuario['email']); ?></td>
                                     <td><?php echo htmlspecialchars($usuario['password']); ?></td>
+                                    <td><?php echo htmlspecialchars($usuario['estado']); ?></td>
+
+
+
                                     <td>
                                         <a href="edit.php?id=<?php echo htmlspecialchars($usuario['id']); ?>" 
                                            title="Editar usuario" 
                                            class="btn btn-primary btn-sm">
                                             <i class="fa fa-edit"></i> EDITAR
                                         </a>
-                                        <a href="details.php?id=<?php echo htmlspecialchars($usuario['id']); ?>" 
-                                           title="Editar usuario" 
-                                           class="btn btn-info btn-sm">
-                                            <i class="fa fa-eye"></i> VER
-                                        </a>
+                                        
                                         <a href="delete.php?id=<?php echo htmlspecialchars($usuario['id']); ?>" title="Eliminar usuario" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar este usuario?');">
                                             <i class="fa fa-trash"></i> ELIMINAR
                                         </a>

@@ -63,10 +63,6 @@ if (isset($_GET['id'])) {
                         <td><?php echo htmlspecialchars($inscripcion['fecha_inscripcion']); ?></td>
                     </tr>
                     <tr>
-                        <th>Curso o Actividad</th>
-                        <td><?php echo htmlspecialchars($inscripcion['curso']); ?></td>
-                    </tr>
-                    <tr>
                         <th>Estado</th>
                         <td><?php echo htmlspecialchars($inscripcion['estado']); ?></td>
                     </tr>

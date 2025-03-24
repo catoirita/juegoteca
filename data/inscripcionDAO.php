@@ -12,15 +12,16 @@ class InscripcionDAO
         $this->conn = $database->getConnection();
     }
 
-    public function addInscripcion($id_nino, $fecha_inscripcion, $monto_pago, $estado_pago)
+    public function addInscripcion($id_niño, $fecha_inscripcion, $monto_pago, $estado_pago)
     {
-        $query = "INSERT INTO inscripciones (id_nino, fecha_inscripcion, monto_pago, estado_pago) 
-                  VALUES (:id_nino, :fecha_inscripcion, :monto_pago, :estado_pago)";
+        $query = "INSERT INTO inscripciones (id_niño, fecha_inscripcion, monto_pago, estado_pago,) 
+                  VALUES (:id_niño, :fecha_inscripcion, :monto_pago, :estado_pago)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':id_nino', $id_nino, PDO::PARAM_INT);
+        $stmt->bindParam(':id_niño', $id_nino, PDO::PARAM_INT);
         $stmt->bindParam(':fecha_inscripcion', $fecha_inscripcion);
         $stmt->bindParam(':monto_pago', $monto_pago);
         $stmt->bindParam(':estado_pago', $estado_pago);
+       
 
         return $stmt->execute(); 
     }
@@ -35,12 +36,12 @@ class InscripcionDAO
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function updateInscripcion($id, $id_nino, $fecha_inscripcion, $monto_pago, $estado_pago)
+    public function updateInscripcion($id, $id_niño, $fecha_inscripcion, $monto_pago, $estado_pago)
     {
-        $query = "UPDATE inscripciones SET id_nino = :id_nino, fecha_inscripcion = :fecha_inscripcion, monto_pago = :monto_pago, estado_pago = :estado_pago WHERE id = :id";
+        $query = "UPDATE inscripciones SET id_niño = :id_niño, fecha_inscripcion = :fecha_inscripcion, monto_pago = :monto_pago, estado_pago = :estado_pago WHERE id = :id";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->bindParam(':id_nino', $id_nino, PDO::PARAM_INT);
+        $stmt->bindParam(':id_niño', $id_niño, PDO::PARAM_INT);
         $stmt->bindParam(':fecha_inscripcion', $fecha_inscripcion);
         $stmt->bindParam(':monto_pago', $monto_pago);
         $stmt->bindParam(':estado_pago', $estado_pago);

@@ -4,16 +4,16 @@ require_once '../../business/InscripcionService.php';
 $inscripcionService = new InscripcionService();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id_nino = $_POST['id_niño'] ?? '';
+    $id_niño = $_POST['id_niño'] ?? '';
     $fecha_inscripcion = $_POST['fecha_inscripcion'] ?? '';
     $monto_pago = $_POST['monto_pago'] ?? '';
     $estado_pago = $_POST['estado_pago'] ?? '';
 
-    if ($id_nino && $fecha_inscripcion && $monto_pago && $estado_pago) {
+    if ($id_niño && $fecha_inscripcion && $monto_pago && $estado_pago) {
         $success = $inscripcionService->addInscripcion($id_niño, $fecha_inscripcion, $monto_pago, $estado_pago);
         
         if ($success) {
-            header('Location: index.php'); // Redirigir a la lista de inscripciones
+            header('Location: index.php'); 
             exit;
         } else {
             echo "Error al agregar la inscripción.";

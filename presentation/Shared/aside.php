@@ -12,7 +12,7 @@
                 </div>
             </li>
 
-            <!-- ACCESO Y SEGURIDAD -->
+            <!-- # 1 ACCESO Y SEGURIDAD -->
             <li class="menu-item">
                 <a href="#" class="menu-toggle"><i class="fa fa-lock fa-fw"></i> ACCESO Y SEGURIDAD <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level" style="display: none;">
@@ -21,7 +21,7 @@
                 </ul>
             </li>
 
-            <!-- PARAMETRIZACIÓN -->
+            <!-- # 2 PARAMETRIZACIÓN -->
             <li class="menu-item">
                 <a href="#" class="menu-toggle"><i class="fa fa-cogs fa-fw"></i> PARAMETRIZACIÓN <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level" style="display: none;">
@@ -30,16 +30,16 @@
                 </ul>
             </li>
 
-            <!-- TRANSACCIONAL -->
+            <!-- # 3 TRANSACCIONAL -->
             <li class="menu-item">
                 <a href="#" class="menu-toggle"><i class="fa fa-exchange fa-fw"></i> TRANSACCIONAL <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level" style="display: none;">
-                    <li><a href="../inscripciones/index.php">GESTIONAR INSCRIPCIONES</a></li>
+                    <li><a href="../inscripcion/index.php">GESTIONAR INSCRIPCIONES</a></li>
                     <li><a href="../asistencias/index.php">CONTROL DE ASISTENCIAS</a></li>
                 </ul>
             </li>
 
-            <!-- REPORTES -->
+            <!--# 4  REPORTES -->
             <li class="menu-item">
                 <a href="#" class="menu-toggle"><i class="fa fa-bar-chart fa-fw"></i> REPORTES <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level" style="display: none;">
@@ -51,17 +51,14 @@
     </div>
 </aside>
 
-<!-- SCRIPT PARA EL EFECTO ACORDEÓN -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
         $(".menu-toggle").click(function (e) {
             e.preventDefault();
             
-            // Cierra solo los otros submenús abiertos
             $(".nav-second-level").not($(this).next()).slideUp();
 
-            // Si el submenú ya está abierto, lo cierra; si no, lo abre
             $(this).next(".nav-second-level").slideToggle();
         });
     });

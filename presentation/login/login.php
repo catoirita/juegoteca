@@ -2,20 +2,19 @@
 require_once '../../business/UsuarioService.php';
 session_start(); // Inicia la sesión
 
-$error = ''; // Variable para almacenar mensajes de error
+$error = ''; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Captura los datos enviados por el usuario
+    // lee los datos ingresados por el usuario
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
     $userService = new UserService();
 
-    // Verifica si las credenciales son correctas
+    // Verifica si todos los datos son correctos
     if ($userService->authenticate($email, $password)) {
         $_SESSION['user'] = $email;
-        $_SESSION['nombre'] = 'Ita Catoira'; // Puedes cambiar esto según la base de datos
-
+        $_SESSION['nombre'] = 'Ita Catoira'; 
         header("Location: ../../presentation/user/index.php");
         exit();
     } else {

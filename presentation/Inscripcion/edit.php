@@ -23,12 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fecha_inscripcion = $_POST['fecha_inscripcion'];
     $curso = $_POST['curso'];
     $estado = $_POST['estado'];
-
-    // Actualizar los datos de la inscripción
+        //actualiza los datos de las inscripciones realizadas. 
     $success = $inscripcionService->updateInscripcion($inscripcionId, $nombre_niño, $fecha_inscripcion, $curso, $estado);
 
     if ($success) {
-        header('Location: index.php'); // Redirigir a la lista de inscripciones
+        header('Location: index.php'); 
         exit;
     } else {
         echo "Error al actualizar los datos de la inscripción.";
@@ -68,17 +67,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     
                     <div class="form-group">
-                        <label for="curso">Curso o Actividad</label>
-                        <input type="text" class="form-control" id="curso" name="curso" value="<?php echo htmlspecialchars($inscripcion['curso']); ?>" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="estado">Estado</label>
-                        <select class="form-control" id="estado" name="estado" required>
-                            <option value="Activo" <?php echo ($inscripcion['estado'] == 'Activo') ? 'selected' : ''; ?>>Activo</option>
-                            <option value="Inactivo" <?php echo ($inscripcion['estado'] == 'Inactivo') ? 'selected' : ''; ?>>Inactivo</option>
-                        </select>
-                    </div>
+                        <label for="estado">Etado</label>
+                        <input type="number" class="form-control" id="estado" name="estado" value="<?php echo htmlspecialchars($inscripcion['estado']); ?>" required>
+                    </div>  
                     
                     <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                 </form>

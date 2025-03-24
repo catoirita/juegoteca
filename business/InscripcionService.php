@@ -8,7 +8,7 @@ class InscripcionService
 
     public function __construct()
     {
-        $this->inscripcionDAO = new InscripcionesDAO();
+        $this->inscripcionDAO = new InscripcionDAO();
     }
 
     public function addInscripcion($id_niño, $fecha_inscripcion, $monto_pago, $estado_pago)

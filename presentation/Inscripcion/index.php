@@ -61,7 +61,7 @@ $inscripciones = $inscripcionService->getAllInscripciones();
                         <?php foreach ($inscripciones as $inscripcion): ?>
                             <tr>
                                 <td><?php echo htmlspecialchars($inscripcion['id']); ?></td>
-                                <td><?php echo htmlspecialchars($inscripcion['id_niño']); ?></td>
+                                <td><?php echo htmlspecialchars($inscripcion['id_nino']); ?></td>
                                 <td><?php echo htmlspecialchars($inscripcion['fecha_inscripcion']); ?></td>
                                 <td><?php echo htmlspecialchars($inscripcion['monto_pago']); ?></td>
                                 <td><?php echo htmlspecialchars($inscripcion['estado_pago']); ?></td>

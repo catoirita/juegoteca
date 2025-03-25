@@ -18,16 +18,16 @@ if (isset($_GET['id'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Obtener datos del formulario
-    $nombre_niño = $_POST['nombre_niño'];
-    $fecha_inscripcion = $_POST['fecha_inscripcion'];
-    $curso = $_POST['curso'];
-    $estado = $_POST['estado'];
-        //actualiza los datos de las inscripciones realizadas. 
-    $success = $inscripcionService->updateInscripcion($inscripcionId, $nombre_niño, $fecha_inscripcion, $curso, $estado);
+    // Obtener datos del formulario con validación para evitar errores
+    $nombre_nino = $_POST['nombre_nino'] ?? '';
+    $fecha_inscripcion = $_POST['fecha_inscripcion'] ?? '';
+    $estado_pago = $_POST['estado_pago'] ?? '';
+
+    // Actualizar los datos de la inscripción
+    $success = $inscripcionService->updateInscripcion($inscripcionId, $nombre_nino, $fecha_inscripcion, $estado_pago);
 
     if ($success) {
-        header('Location: index.php'); 
+        header('Location: index.php'); // Redirigir a la lista de inscripciones
         exit;
     } else {
         echo "Error al actualizar los datos de la inscripción.";
@@ -42,9 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Editar Inscripción</title>
-    
-    <!-- Bootstrap Core CSS -->
     <link href="../../public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../public/css/startmin.css" rel="stylesheet">
 </head>
 <body>
     <div id="wrapper">
@@ -57,20 +56,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <form action="edit.php?id=<?php echo $inscripcionId; ?>" method="post">
                     <div class="form-group">
-                        <label for="nombre_niño">Nombre del Niño</label>
-                        <input type="text" class="form-control" id="nombre_niño" name="nombre_niño" value="<?php echo htmlspecialchars($inscripcion['nombre_niño']); ?>" required>
+                        <label for="nombre_nino">Nombre del Niño</label>
+                        <input type="text" class="form-control" id="nombre_nino" name="nombre_nino" 
+                            value="<?php echo isset($inscripcion['nombre_nino']) ? htmlspecialchars($inscripcion['nombre_nino']) : ''; ?>" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="fecha_inscripcion">Fecha de Inscripción</label>
-                        <input type="date" class="form-control" id="fecha_inscripcion" name="fecha_inscripcion" value="<?php echo htmlspecialchars($inscripcion['fecha_inscripcion']); ?>" required>
+                        <input type="date" class="form-control" id="fecha_inscripcion" name="fecha_inscripcion" 
+                            value="<?php echo isset($inscripcion['fecha_inscripcion']) ? htmlspecialchars($inscripcion['fecha_inscripcion']) : ''; ?>" required>
                     </div>
-                    
+
                     <div class="form-group">
-                        <label for="estado">Etado</label>
-                        <input type="number" class="form-control" id="estado" name="estado" value="<?php echo htmlspecialchars($inscripcion['estado']); ?>" required>
-                    </div>  
-                    
+                        <label for="estado_pago">Estado de Pago</label>
+                        <select class="form-control" id="estado_pago" name="estado_pago" required>
+                            <option value="pendiente" <?php echo (isset($inscripcion['estado_pago']) && $inscripcion['estado_pago'] == 'pendiente') ? 'selected' : ''; ?>>Pendiente</option>
+                            <option value="pagado" <?php echo (isset($inscripcion['estado_pago']) && $inscripcion['estado_pago'] == 'pagado') ? 'selected' : ''; ?>>Pagado</option>
+                        </select>
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                 </form>
                 <a href="index.php" class="btn btn-secondary mt-3">Volver a la lista</a>
@@ -78,7 +82,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 
-    <!-- jQuery y Bootstrap JS -->
     <script src="../../public/js/jquery.min.js"></script>
     <script src="../../public/js/bootstrap.min.js"></script>
 </body>

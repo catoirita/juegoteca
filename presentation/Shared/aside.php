@@ -27,6 +27,7 @@
                 <ul class="nav nav-second-level" style="display: none;">
                     <li><a href="../niño/index.php">ADMINISTRAR NIÑOS</a></li>
                     <li><a href="../personal/index.php">ADMINISTRAR PERSONAL</a></li>
+                    <li><a href="">ADMINISTRAR AUTORIZADOS</a></li>
                 </ul>
             </li>
 

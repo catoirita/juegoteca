@@ -1,6 +1,6 @@
 .welcome-box {
-    background-image: url('../img/recreo.png'); /* Reemplaza con la ruta de tu imagen */
-    background-size: cover;
+    background-image: url('../img/admrecreo.jpg'); /* Reemplaza con la ruta de tu imagen */
+    background-size: contain;
     background-position: center;
     background-color: rgb(228, 13, 13); /* Fondo negro semitransparente */
     color: white; /* Color del texto para que sea visible sobre la imagen */
@@ -8,10 +8,11 @@
     padding: 50px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
-    margin-top: 20%;
-    margin-left: 25%;
-    width: 50%;
-
+    margin-top: 8%;
+    margin-left: 20%;
+    width: 80%;
+    height: auto;
+    min-height: 600px;
 }
 
 .welcome-box h1 {

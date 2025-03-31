@@ -52,7 +52,7 @@
 
             <div class="container d-flex justify-content-center align-items-center vh-100">
                 <div class="welcome-box text-center">
-                    <h1>Bienvenido al Sistema de Administración RECREO</h1>
+                  
                 </div>
             </div>
 

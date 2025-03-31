@@ -43,8 +43,8 @@ $niños = $niñoService->getAllNiños();
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Lista de Niños</h1>
-                        <a href="create.php" title="Agregar nuevo niño" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addNiñoModal">REGISTRAR</a>
+                        <h1 class="page-header">ADMINISTRAR NIÑOS</h1>
+                        <a href="create.php" title="Agregar nuevo niño" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addNiñoModal">REGISTRAR NIÑO</a>
                     </div>
                 </div>
                 <table class="table table-striped mt-3">

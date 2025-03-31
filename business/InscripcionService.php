@@ -4,7 +4,7 @@ require_once __DIR__ . '/../data/inscripcionDAO.php';
 
 class InscripcionService
 {
-    private $inscripcionesDAO;
+    private $inscripcionDAO;
 
     public function __construct()
     {

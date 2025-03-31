@@ -101,8 +101,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input type="text" class="form-control" id="telefono_emergencia" name="telefono_emergencia" value="<?php echo htmlspecialchars($niño['telefono_emergencia']); ?>" required>
                     </div>
                     <div class="form-group">
-                        <label for="estado">Etado</label>
-                        <input type="number" class="form-control" id="estado" name="estado" value="<?php echo htmlspecialchars($niño['estado']); ?>" required>
+                        <label for="estado">Estado</label>
+                        <select class="form-control" id="estado" name="estado" required>
+                            <option value="1" <?= isset($personal['estado']) && $personal['estado'] == 1 ? 'selected' : '' ?>>Activo</option>
+                            <option value="0" <?= isset($personal['estado']) && $personal['estado'] == 0 ? 'selected' : '' ?>>Inactivo</option>
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                 </form>

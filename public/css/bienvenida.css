@@ -1,0 +1,25 @@
+.welcome-box {
+    background-image: url('../img/recreo.png'); /* Reemplaza con la ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-color: rgb(228, 13, 13); /* Fondo negro semitransparente */
+    color: white; /* Color del texto para que sea visible sobre la imagen */
+
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
+    margin-top: 20%;
+    margin-left: 25%;
+    width: 50%;
+
+}
+
+.welcome-box h1 {
+    text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+    font-weight: 800; /* Hace las letras más gruesas */
+}
+

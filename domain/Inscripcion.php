@@ -10,7 +10,7 @@ class Inscripcion {
     // Constructor
     public function __construct($id_niño, $fecha_inscripcion, $monto_pago, $estado_pago, $id = null) {
         $this->id = $id;
-        $this->id_nino = $id_niño;
+        $this->id_niño = $id_niño;
         $this->fecha_inscripcion = $fecha_inscripcion;
         $this->monto_pago = $monto_pago;
         $this->estado_pago = $estado_pago;
@@ -22,7 +22,7 @@ class Inscripcion {
     }
 
     public function getIdNiño() {
-        return $this->id_nino;
+        return $this->id_niño;
     }
 
     public function getFechaInscripcion() {
@@ -43,7 +43,7 @@ class Inscripcion {
     }
 
     public function setIdNiño($id_niño) {
-        $this->id_nino = $id_nino;
+        $this->id_niño = $id_niño;
     }
 
     public function setFechaInscripcion($fecha_inscripcion) {

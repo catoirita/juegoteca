@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($userService->authenticate($email, $password)) {
         $_SESSION['user'] = $email;
         $_SESSION['nombre'] = 'Ita Catoira'; 
-        header("Location: ../../presentation/user/index.php");
+        header("Location: ../../presentation/bienvenida/bienvenida.php");
         exit();
     } else {
         $error = 'Usuario/Contraseña inválida.';

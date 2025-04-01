@@ -4,7 +4,7 @@
 <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background: #CE2834">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">Startmin</a>
+                   
                 </div>
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

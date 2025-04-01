@@ -2,7 +2,7 @@
     session_start();
 ?>
 <!-- Navigation -->
-            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background: #CE2834">
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background: #C20E1A">
                 <div class="navbar-header">
                    
                 </div>

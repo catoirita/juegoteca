@@ -31,7 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Inicio de Sesión</title>
     <style>
         body {
-            background-color: #CE2834;
+            background: url('loginrecreo.jpg') no-repeat center center fixed;
+            background-size: cover;
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -40,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin: 0;
         }
         .login-container {
-            background-color: #A4A1A1;
+            background-color:rgba(255, 246, 246, 0.9);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
@@ -63,8 +64,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-align: center;
         }
         .btn {
-            background-color: #4CAF50;
-            color: black;
+            background-color: #1FA634;
+            color: white;
             padding: 10px 20px;
             border: none;
             border-radius: 10px;

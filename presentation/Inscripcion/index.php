@@ -42,7 +42,7 @@ $inscripciones = $inscripcionService->getAllInscripciones();
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">ADMINISTRAR INSCRIPCIONES</h1>
+                        <h1 class="page-header">GESTIONAR INSCRIPCIONES</h1>
                         <a href="create.php" title="Agregar una nueva inscripcion" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addInscripcionModal">REGISTRAR</a>
                     </div>
                 </div>

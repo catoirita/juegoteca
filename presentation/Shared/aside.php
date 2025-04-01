@@ -16,8 +16,8 @@
             <li class="menu-item">
                 <a href="#" class="menu-toggle"><i class="fa fa-lock fa-fw"></i> ACCESO Y SEGURIDAD <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level" style="display: none;">
-                    <li><a href="../User/index.php">ADM USUARIO</a></li>
-                    <li><a href="../Roles/index.php">ADM ROLES</a></li>
+                    <li><a href="../User/index.php">ADMINISTRAR USUARIO</a></li>
+                    <li><a href="../Roles/index.php">ADMINISTRAR ROLES</a></li>
                 </ul>
             </li>
 

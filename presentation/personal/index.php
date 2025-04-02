@@ -96,7 +96,7 @@ $personales = $personalService->getAllPersonal();
                                     <td>
                                         <a href="edit.php?id=<?php echo htmlspecialchars($personal['id_personal']); ?>" 
                                            title="Editar usuario" 
-                                           class="btn btn-primary btn-sm">
+                                           class="btn btn-primary btn-sm"> 
                                             <i class="fa fa-edit"></i> EDITAR
                                         </a>
                                         

@@ -112,9 +112,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             let descripcion = document.getElementById("descripcion");
             descripcion.innerHTML = '<option value="" disabled selected>Seleccione una descripción</option>';
             let opciones = {
-                "alergias_respiratorias": ["Rinitis alérgica", "Asma alérgica"],
-                "alergias_alimentarias": ["Alergia a los frutos secos", "Alergia a la leche de vaca", "Leche de vaca", "Huevos", "Maní y frutos secos", "Pescado", "Mariscos", "Soja", "Trigo", "Sésamo"],
-                "alergias_cutaneas": ["Dermatitis atópica", "Sarpullidos causados por plantas", "Sarpullido por fitofotodermatitis"],
+                "alergias_respiratorias": ["Rinitis alérgica", "Asma alérgica", "Alergia al Polen", "Respiracion sibilante"],
+                "alergias_alimentarias": ["Alergia a los frutos secos", "Alergia a la leche de vaca", "Huevos", "Maní ", "Pescado", "Mariscos", "Soja", "Trigo", "Sésamo","Citricos"],
+                "alergias_cutaneas": ["Dermatitis atópica", "Sarpullidos causados por plantas", "Sarpullido por fitofotodermatitis","Sarpullido por picaduras de insectos"],
                 "diabetes": ["Diabetes tipo 1", "Diabetes tipo 2"]
             };
             let categoriaSeleccionada = this.value;
